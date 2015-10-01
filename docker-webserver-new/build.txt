@@ -1,0 +1,4 @@
+docker build -t="class/webserver-new" .
+docker images
+docker tag class/webserver-new gcr.io/<​your_project_id>/webserver-new
+gcloud docker push gcr.io/<​your_project_id>/webserver-new
