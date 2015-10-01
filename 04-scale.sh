@@ -20,12 +20,12 @@ cmd="watch -g -n 1 'kubectl get pods'"
 pmt_cmd "$pmt" "$cmd"
 
 INSTANCE=$(gcloud compute instances list | grep -v NAME | awk '{ print $1 }' | tail -n 1)
-pmt="Let's kill a container"
+pmt="ssh-ing into one of the cluster nodes !"
 cmd="gcloud compute ssh $INSTANCE"
 pmt_cmd "$pmt" "$cmd"
 
 
-pmt="See the pod restart"
+pmt="Verify that the POD that runs the killed container is restarted"
 cmd="watch -n 1 'kubectl get pods' && kubectl get pods"
 pmt_cmd "$pmt" "$cmd"
 
